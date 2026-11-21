@@ -1,7 +1,3 @@
-You can add a section in your README for "Handy Commands" that includes these useful commands for building and maintaining your Flutter project. Here's how you can incorporate them into your existing README:
-
----
-
 # Sound Of Meme
 
 Welcome to **Sound Of Meme** – an application that lets users create, listen to, and interact with meme sounds. Built using Flutter, this app follows Clean Architecture principles, ensuring a scalable and maintainable codebase.
@@ -31,43 +27,11 @@ Welcome to **Sound Of Meme** – an application that lets users create, listen t
 ## Project Structure
 
 ```
-lib/
-│
-├── core/
-│   ├── error/
-│   │   ├── exceptions.dart
-│   │   └── failures.dart
-│   ├── usecases/
-│   │   └── usecase.dart
-│   └── utils/
-│       └── constants.dart
-│
-├── data/
-│   ├── datasources/
-│   │   ├── remote/
-│   │   │   └── song_remote_data_source.dart
-│   ├── models/
-│   │   └── song_model.dart
-│   └── repositories/
-│       └── song_repository_impl.dart
-│
-├── domain/
-│   ├── entities/
-│   │   └── song.dart
-│   ├── repositories/
-│   │   └── song_repository.dart
-│   └── usecases/
-│       ├── fetch_songs.dart
-│       └── like_song.dart
-│
-├── presentation/
-│   ├── pages/
-│   │   ├── meme_sound_page.dart
-│   ├── viewmodels/
-│   │   └── meme_sound_viewmodel.dart
-│   └── widgets/
-│       └── song_list.dart
-│
+sound_of_meme/lib/
+├── core/            constants, extensions, helpers, utilities, service locator
+├── data/            API clients, data sources, models, repository implementation
+├── domain/          entities, repository contract, use cases, validators
+├── presentation/    app, screens, widgets
 └── main.dart
 ```
 
@@ -82,8 +46,8 @@ lib/
 
 1. **Clone the Repository**
    ```bash
-   git clone <your-repository-url>
-   cd sound_of_meme
+   git clone https://github.com/raghav-verma/sound_of_meme.git
+   cd sound_of_meme/sound_of_meme
    ```
 
 2. **Install Dependencies**
@@ -101,11 +65,11 @@ lib/
       flutter run
       ```
 
-4. **Build for Release Mode (Required for Google Sign-In)**
+4. **Build a Release APK**
    ```bash
    flutter build apk --release
    ```
-   Ensure you are using the attached JKS file for the release mode.
+   The release keystore is not in this repository. Without `android/key.properties` the build is signed with the debug key. Google sign-in needs a signing key whose SHA-1 is registered in the Firebase project.
 
 ## Handy Commands
 
@@ -126,10 +90,10 @@ lib/
 
 ## APK and Videos
 
-- **[Download Android APK](#)**
-- **[Android Overview Video](#)**
-- **[iOS Overview Video](#)**
-- **[App Walkthrough Video](#)**
+- **[Download Android APK](android_apk/app-release.apk)**
+- **[Android Overview Video](android_overview.mp4)**
+- **[iOS Overview Video](ios_overview.mp4)**
+- **[App Walkthrough Video](app_walkthrough.mkv)**
 
 ## License
 
